@@ -4,4 +4,3 @@ from prefect import flow
 def run_script():
     x = 'abcd'
     print(x)
-    return x
