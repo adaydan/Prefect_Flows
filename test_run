@@ -1,6 +1,6 @@
-from prefect import flow, task
-
-
+from prefect import flow
+from prefect.deployments import Deployment
+from prefect.filesystems import GitHub
 
 @flow(log_prints=True)
 def run_script():
@@ -9,6 +9,11 @@ def run_script():
     return x
 
 if __name__ == "__main__":
-    run_script.serve(name="print_test_page_local",
-                      parameters={},
-                      interval=None)
+    storage = GitHub(repository="https://github.com/adaydan/Prefect_Flows", path="test_run.py")
+    
+    Deployment.build_from_flow(
+        flow=run_script,
+        name="cloud_run_script",
+        storage=storage,
+        work_pool_name="Adaydan Agent"
+    ).apply()
