@@ -9,6 +9,7 @@ def install_chrome():
 
 @flow(log_prints=True)
 def launch_browser():
+    print('starting...")
     install_chrome()
     with sync_playwright() as p:
         # Launch Chrome (non-headless)
