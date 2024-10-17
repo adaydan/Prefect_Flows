@@ -1,10 +1,11 @@
 from prefect import flow, task
 from playwright.sync_api import sync_playwright
+import subprocess
 global page
 
 @task
 def install_chrome():
-    subprocess.run(["playwright", "install", "chrome"], check=True)
+    subprocess.run(["playwright", "install", "chrome"], check=False)
 
 @flow(log_prints=True)
 install_chrome()
