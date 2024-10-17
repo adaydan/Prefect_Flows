@@ -8,8 +8,8 @@ def install_chrome():
     subprocess.run(["playwright", "install", "chrome"], check=False)
 
 @flow(log_prints=True)
-install_chrome()
 def launch_browser():
+    install_chrome()
     with sync_playwright() as p:
         # Launch Chrome (non-headless)
         browser = p.chromium.launch(headless=True, channel="chrome")
