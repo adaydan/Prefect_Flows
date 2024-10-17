@@ -27,8 +27,3 @@ def launch_browser():
         print('_______________')
 
         browser.close()
-
-@flow(log_prints=False)
-def run_script():
-    launch_browser()
-    return
