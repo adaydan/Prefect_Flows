@@ -1,12 +1,13 @@
 from prefect import flow, task
-import requests
 from playwright.sync_api import sync_playwright
-import pandas as pd
 global page
 
-
+@task
+def install_chrome():
+    subprocess.run(["playwright", "install", "chrome"], check=True)
 
 @flow(log_prints=True)
+install_chrome()
 def launch_browser():
     with sync_playwright() as p:
         # Launch Chrome (non-headless)
