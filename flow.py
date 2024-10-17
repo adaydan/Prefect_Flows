@@ -1,6 +1,5 @@
 from prefect import flow, task
 from playwright.sync_api import sync_playwright
-import subprocess
 global page
     
 
