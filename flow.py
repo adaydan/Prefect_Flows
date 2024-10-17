@@ -5,11 +5,8 @@ import pandas as pd
 global page
 
 
-# @task
-# def print_variable(page):
-#
-#     return x
-@flow(log_prints=False)
+
+@flow(log_prints=True)
 def launch_browser():
     with sync_playwright() as p:
         # Launch Chrome (non-headless)
