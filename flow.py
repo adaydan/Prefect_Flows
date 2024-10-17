@@ -6,11 +6,12 @@ global page
 
 @flow(log_prints=True)
 def launch_browser():
-    print('starting...')
+    print("starting...")
     try:
-        subprocess.run(["playwright", "install", "chrome"], check=False)
+        print("good")
+        #subprocess.run(["playwright", "install", "chrome"], check=False)
     except:
-        print('error')
+        print("error")
     # with sync_playwright() as p:
     #     # Launch Chrome (non-headless)
     #     browser = p.chromium.launch(headless=True, channel="chrome")
