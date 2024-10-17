@@ -1,5 +1,6 @@
 from prefect import flow, task
 from playwright.sync_api import sync_playwright
+from prefect_shell import ShellOperation
 global page
     
 
